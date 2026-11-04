@@ -519,7 +519,7 @@ else
         local textLabel2 = Instance.new("TextLabel")
         textLabel2.Size = UDim2.new(1, 0, 1, 0)
         textLabel2.BackgroundTransparency = 1
-        textLabel2.Text = "https://discord.gg/qGGs3U3t76"
+        textLabel2.Text = "https://discord.gg/r8V48K4CHd"
 
         local color = Color3.fromRGB(0, 220, 255)
         local color2 = Color3.fromRGB(0, 0, 0)
@@ -689,7 +689,7 @@ else
   local color5 = Color3.fromRGB(180, 180, 180)
   local gotham = Enum.Font.Gotham
 
-  textLabel4.Text = "join https://discord.gg/qGGs3U3t76 to receive key"
+  textLabel4.Text = "join https://discord.gg/r8V48K4CHd to receive key"
   textLabel4.TextColor3 = color5
   textLabel4.Font = gotham
   textLabel4.TextSize = 11
@@ -918,7 +918,7 @@ else
 
   mouseButton1Click:Connect(function()
     if setclipboard then
-      setclipboard("https://discord.gg/qGGs3U3t76")
+      setclipboard("https://discord.gg/r8V48K4CHd")
       textButton.Text = "COPIED!"
       task.wait(1.5)
       textButton.Text = "COPY DISCORD"
@@ -1529,9 +1529,9 @@ else
       end)
 
       suavleysGuiWindow = v116:CreateWindow({
-        Title = "suavleys gui",
-        Icon = "https://raw.githubusercontent.com/semhi365-max/1/refs/heads/main/image0.jpeg",
-        Author = "Made by suavley",
+        Title = "coco's kukirin life",
+        Icon = "https://raw.githubusercontent.com/brookbrookcms-cmyk/key-/main/assets/coconut.jpg",
+        Author = "Made by coco",
         Folder = "SuavleysGUI",
         Size = UDim2.fromOffset(530, 420),
         Theme = "Dark",
@@ -1556,17 +1556,17 @@ else
       suavleysGuiWindow:SelectTab(1)
 
       aboutTab:Paragraph({
-        Title = "Made by suavley",
-        Desc = "Join the discord for more",
-        Image = "https://raw.githubusercontent.com/semhi365-max/1/refs/heads/main/image0.jpeg",
-        ImageSize = 90,
+        Title = "Made by coco",
+        Desc = "Join coco's discord for more",
+        Image = "https://raw.githubusercontent.com/brookbrookcms-cmyk/key-/main/assets/coconut.jpg",
+        ImageSize = 80,
         Buttons = {
           {
             Title = "Copy Discord",
             Icon = "copy",
             Callback = function()
               if setclipboard then
-                setclipboard("https://discord.gg/qGGs3U3t76")
+                setclipboard("https://discord.gg/r8V48K4CHd")
               end
             end,
           },
@@ -1578,7 +1578,7 @@ else
         Desc = "Some features might not work anymore because the game got a new anti-cheat.",
       })
 
-      aboutTab:Paragraph({ Title = "Discord", Desc = "https://discord.gg/qGGs3U3t76" })
+      aboutTab:Paragraph({ Title = "Discord", Desc = "https://discord.gg/r8V48K4CHd" })
 
       statusParagraph = scooterTab:Paragraph({ Title = "Status", Desc = "Ready" })
       boostToggle = nil
