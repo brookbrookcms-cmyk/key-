@@ -1,5 +1,3 @@
--- SuavleysGUI.lua | Roblox | Luau
--- Original GUI features with optional SKIP KEY button.
 local players = game:GetService("Players")
 local starterPlayer = game:GetService("StarterPlayer")
 local runService = game:GetService("RunService")
