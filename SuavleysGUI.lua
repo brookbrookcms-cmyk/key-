@@ -1530,7 +1530,7 @@ else
 
       suavleysGuiWindow = v116:CreateWindow({
         Title = "coco's kukirin life",
-        Icon = "https://raw.githubusercontent.com/brookbrookcms-cmyk/key-/main/assets/coconut.jpg",
+        Icon = "https://raw.githubusercontent.com/brookbrookcms-cmyk/key-/main/assets/coco_kukirin_life.jpg",
         Author = "Made by coco",
         Folder = "SuavleysGUI",
         Size = UDim2.fromOffset(530, 420),
@@ -1558,7 +1558,7 @@ else
       aboutTab:Paragraph({
         Title = "Made by coco",
         Desc = "Join coco's discord for more",
-        Image = "https://raw.githubusercontent.com/brookbrookcms-cmyk/key-/main/assets/coconut.jpg",
+        Image = "https://raw.githubusercontent.com/brookbrookcms-cmyk/key-/main/assets/coco_kukirin_life.jpg",
         ImageSize = 80,
         Buttons = {
           {
