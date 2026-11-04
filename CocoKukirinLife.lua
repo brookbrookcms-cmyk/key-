@@ -48,7 +48,7 @@ local f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f1
   v55, v56, v57, seatPart, antiCrashToggle, antiCrashToggle2, v58, values, v59, f21, v60, f22,
   f23, v61, connect4, v62, steeringMultiplier, v63, brakePower, v64, suspensionForce, v65,
   maybachSpeed, v66, rightShift, v67, espOutlineTransparency, v68, v69, v70, huge, dropdown,
-  v71, connect5, f24, raycastParams, suavleysGUI, f25, frame, textBox, textButton, f26, f27,
+  v71, connect5, f24, raycastParams, suavleysGUI, f25, f26, f27,
   f28, f29, toggle, toggle2, f30, f31, f32, f33, f34, f35, raycastParams2, f36
 
 if not v29 then
@@ -502,52 +502,11 @@ else
   raycastParams.FilterType = Enum.RaycastFilterType.Exclude
   raycastParams.IgnoreWater = true
 
-  local function f39(p10)
-    if not p10 then
-      return
-    end
+  -- Remove leftovers from older versions if present.
+  local oldHead = localPlayer.Character and localPlayer.Character:FindFirstChild("Head")
+  local oldWatermark = oldHead and oldHead:FindFirstChild("DiscordWatermark")
+  if oldWatermark then oldWatermark:Destroy() end
 
-    task.spawn(function()
-      local waitForChild3 = p10:WaitForChild("Head", 5)
-
-      if not waitForChild3 or waitForChild3:FindFirstChild("DiscordWatermark") then
-        return
-      else
-        local discordWatermark = Instance.new("BillboardGui")
-        local udim = UDim2.new(0, 350, 0, 60)
-        local vector = Vector3.new(0, 3.5, 0)
-
-        discordWatermark.Name = "DiscordWatermark"
-        discordWatermark.Size = udim
-        discordWatermark.StudsOffset = vector
-        discordWatermark.AlwaysOnTop = true
-        discordWatermark.Parent = waitForChild3
-
-        local textLabel2 = Instance.new("TextLabel")
-        textLabel2.Size = UDim2.new(1, 0, 1, 0)
-        textLabel2.BackgroundTransparency = 1
-        textLabel2.Text = "https://discord.gg/r8V48K4CHd"
-
-        local color = Color3.fromRGB(0, 220, 255)
-        local color2 = Color3.fromRGB(0, 0, 0)
-
-        textLabel2.TextColor3 = color
-        textLabel2.TextStrokeTransparency = 0
-        textLabel2.TextStrokeColor3 = color2
-        textLabel2.Font = Enum.Font.GothamBold
-        textLabel2.TextSize = 22
-        textLabel2.Parent = discordWatermark
-
-        return
-      end
-    end)
-  end
-
-  if localPlayer.Character then
-    f39(localPlayer.Character)
-  end
-
-  localPlayer.CharacterAdded:Connect(f39)
   suavleysGUI = Instance.new("ScreenGui")
   local global = Enum.ZIndexBehavior.Global
 
@@ -653,109 +612,6 @@ else
     end
   end)
 
-  frame = Instance.new("Frame")
-  local udim2 = UDim2.new(0, 320, 0, 240)
-  local udim3 = UDim2.new(0.5, -160, 0.35, 0)
-  local color3 = Color3.fromRGB(18, 18, 24)
-
-  frame.Size = udim2
-  frame.Position = udim3
-  frame.BackgroundColor3 = color3
-  frame.BorderSizePixel = 0
-  frame.Active = true
-  frame.Parent = suavleysGUI
-
-  Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
-
-  local uiStroke2 = Instance.new("UIStroke")
-  uiStroke2.Color = Color3.fromRGB(0, 200, 255)
-  uiStroke2.Thickness = 2
-  uiStroke2.Parent = frame
-
-  local textLabel3 = Instance.new("TextLabel")
-  local udim4 = UDim2.new(1, 0, 0, 35)
-  local color4 = Color3.fromRGB(0, 220, 255)
-  local gothamBold = Enum.Font.GothamBold
-
-  textLabel3.Size = udim4
-  textLabel3.BackgroundTransparency = 1
-  textLabel3.Text = "KEY SYSTEM"
-  textLabel3.TextColor3 = color4
-  textLabel3.Font = gothamBold
-  textLabel3.TextSize = 16
-  textLabel3.Parent = frame
-
-  local textLabel4 = Instance.new("TextLabel")
-  local udim5 = UDim2.new(1, -20, 0, 30)
-  local udim6 = UDim2.new(0, 10, 0, 35)
-
-  textLabel4.Size = udim5
-  textLabel4.Position = udim6
-  textLabel4.BackgroundTransparency = 1
-
-  local color5 = Color3.fromRGB(180, 180, 180)
-  local gotham = Enum.Font.Gotham
-
-  textLabel4.Text = "join https://discord.gg/r8V48K4CHd to receive key"
-  textLabel4.TextColor3 = color5
-  textLabel4.Font = gotham
-  textLabel4.TextSize = 11
-  textLabel4.TextWrapped = true
-  textLabel4.Parent = frame
-
-  textBox = Instance.new("TextBox")
-  local udim7 = UDim2.new(0.92, 0, 0, 38)
-  local udim8 = UDim2.new(0.04, 0, 0, 75)
-  local color6 = Color3.fromRGB(32, 32, 42)
-
-  textBox.Size = udim7
-  textBox.Position = udim8
-  textBox.BackgroundColor3 = color6
-
-  local color7 = Color3.fromRGB(255, 255, 255)
-  local color8 = Color3.fromRGB(120, 120, 120)
-  local gotham2 = Enum.Font.Gotham
-
-  textBox.PlaceholderText = "Enter Key here..."
-  textBox.Text = ""
-  textBox.TextColor3 = color7
-  textBox.PlaceholderColor3 = color8
-  textBox.Font = gotham2
-  textBox.TextSize = 14
-  textBox.Parent = frame
-
-  Instance.new("UICorner", textBox).CornerRadius = UDim.new(0, 8)
-  local textButton2 = Instance.new("TextButton")
-  local udim9 = UDim2.new(0.92, 0, 0, 36)
-  local udim10 = UDim2.new(0.04, 0, 0, 120)
-  local color9 = Color3.fromRGB(0, 150, 255)
-
-  textButton2.Size = udim9
-  textButton2.Position = udim10
-  textButton2.BackgroundColor3 = color9
-
-  local color10 = Color3.fromRGB(255, 255, 255)
-  local gothamBold2 = Enum.Font.GothamBold
-
-  textButton2.Text = "SUBMIT KEY"
-  textButton2.TextColor3 = color10
-  textButton2.Font = gothamBold2
-  textButton2.TextSize = 14
-  textButton2.Parent = frame
-
-  Instance.new("UICorner", textButton2).CornerRadius = UDim.new(0, 8)
-  textButton = Instance.new("TextButton")
-  local udim11 = UDim2.new(0.92, 0, 0, 36)
-  local udim12 = UDim2.new(0.04, 0, 0, 164)
-  local color11 = Color3.fromRGB(60, 60, 80)
-
-  textButton.Size = udim11
-  textButton.Position = udim12
-  textButton.BackgroundColor3 = color11
-
-  local color12 = Color3.fromRGB(255, 255, 255)
-  local font = Enum.Font
-
   function f8(p13, p14, p15, p16, text, fillColor, p17)
     if p16[p13] then
       return
@@ -793,14 +649,6 @@ else
     end
   end
 
-  local gothamBold3 = font.GothamBold
-
-  textButton.Text = "COPY DISCORD"
-  textButton.TextColor3 = color12
-  textButton.Font = gothamBold3
-  textButton.TextSize = 14
-  textButton.Parent = frame
-
   function f9()
     v46 = false
 
@@ -820,9 +668,6 @@ else
     end
   end
 
-  local instance5 = Instance.new("UICorner", textButton)
-  local udim13 = UDim.new(0, 8)
-
   function f10()
     for key2, value9 in pairs(v68) do
       if value9.highlight then
@@ -830,8 +675,6 @@ else
       end
     end
   end
-
-  instance5.CornerRadius = udim13
 
   function f11(p18, canCollide)
     if p18 and p18.Parent then
@@ -901,8 +744,6 @@ else
     return throttleFloat, steerFloat
   end
 
-  local mouseButton1Click = textButton.MouseButton1Click
-
   function f13(p22)
     if not p22 or not p22.Parent then
       return false
@@ -922,19 +763,6 @@ else
       return false
     end
   end
-
-  mouseButton1Click:Connect(function()
-    if setclipboard then
-      setclipboard("https://discord.gg/r8V48K4CHd")
-      textButton.Text = "COPIED!"
-      task.wait(1.5)
-      textButton.Text = "COPY DISCORD"
-    else
-      textButton.Text = "NOT SUPPORTED"
-      task.wait(1.5)
-      textButton.Text = "COPY DISCORD"
-    end
-  end)
 
   function f26()
     local character2 = localPlayer.Character
@@ -1477,39 +1305,6 @@ else
     elseif input4.KeyCode == Enum.KeyCode.D or input4.KeyCode == Enum.KeyCode.Right then
       v34 = false
     end
-  end)
-
-  textButton2.MouseButton1Click:Connect(function()
-    if textBox.Text == "jbhh" then
-      if frame then
-        frame:Destroy()
-      end
-
-      loadWindUI()
-    else
-      textBox.Text = ""
-      textBox.PlaceholderText = "Wrong Key!"
-    end
-  end)
-
-  -- Small optional skip button; launches the existing hub without replacing features.
-  local skipKeyButton = Instance.new("TextButton")
-  skipKeyButton.Name = "SkipKey"
-  skipKeyButton.Size = UDim2.new(0, 100, 0, 24)
-  skipKeyButton.Position = UDim2.new(0.5, -50, 0, 207)
-  skipKeyButton.BackgroundTransparency = 1
-  skipKeyButton.BorderSizePixel = 0
-  skipKeyButton.Text = "SKIP KEY"
-  skipKeyButton.TextColor3 = Color3.fromRGB(155, 155, 170)
-  skipKeyButton.Font = Enum.Font.GothamMedium
-  skipKeyButton.TextSize = 11
-  skipKeyButton.Parent = frame
-
-  skipKeyButton.MouseButton1Click:Connect(function()
-    if frame and frame.Parent then
-      frame:Destroy()
-    end
-    loadWindUI()
   end)
 
   function loadWindUI()
@@ -2863,6 +2658,9 @@ else
       end
     end
   end)
+
+  -- Launch Coco Hub directly; no key entry, skip screen, or interstitial GUI.
+  task.defer(loadWindUI)
 
   return
 end
